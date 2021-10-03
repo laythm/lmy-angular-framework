@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center">
+    <ul class="pagination">
+        <li class="page-item"><button [disabled]='activePage<=1 || disabled' (click)="onClickPage(1)"
+                class="page-link">«</button>
+        </li>
+        <li class="page-item"><button [disabled]='activePage<=1 || disabled' (click)="onClickPage(activePage - 1)"
+                class="page-link">‹</button></li>
+
+        <li class="page-item"><span class="page-link" *ngIf="totalItemsCount>0">{{activePage}} {{ 'core.of' | translate
+                }} {{pageCount}}</span>
+        </li>
+ 
+
+        <li class="page-item"><button [disabled]='activePage==pageCount || disabled'
+                (click)="onClickPage(activePage + 1)" class="page-link">›</button>
+        </li>
+        <li class="page-item"><button [disabled]='activePage==pageCount || disabled' (click)="onClickPage(pageCount)"
+                class="page-link">»</button></li>
+    </ul>
+</div>

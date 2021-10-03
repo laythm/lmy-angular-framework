@@ -1,0 +1,98 @@
+<div class="container">
+
+    <div class="card border-warning">
+        <div class="card-body p-0">
+
+            <div
+                class="mr-0 ml-0 view view-cascade bg-primary narrower py-2 mb-3 d-flex justify-content-between align-items-center">
+
+                <span class="white-text mx-3">{{ "admin.projectsList"| translate }}</span>
+
+                <button mdbWavesEffect mdbBtn type="button" class="btn btn-info btn-sm mr-2" routerLink='add'>{{ "add"|
+                    translate }}</button>
+
+            </div>
+
+            <div class="px-4">
+                <app-alerts [basemodel]="basemodel"></app-alerts>
+            </div>
+
+            <form [formGroup]="frm" class="row px-4" (submit)="search();">
+
+                <div class="col-md-6">
+                    <div class=" md-form">
+                        <input type="text" formControlName="title" class="form-control"
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null" mdbInput>
+                        <label for="title">{{'admin.title'|translate}}</label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="md-form">
+                        <input type="text" formControlName="description" class="form-control"
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null" mdbInput>
+                        <label for="description">{{'admin.description'|translate}}</label>
+                    </div>
+                </div>
+
+                <div class="col-md-12 p-0">
+                    <button mdbBtn mdbWavesEffect class="float-right btn btn-info btn-sm mr-2 my-0 waves-light"
+                        type="submit" [disabled]="loading">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        {{'search'|translate}}</button>
+
+                    <button mdbBtn mdbWavesEffect class="float-right btn btn-secondary btn-sm mr-2 my-0 waves-light"
+                        type="button" [disabled]="loading" (click)="clear();">
+                        {{'clear'|translate}}</button>
+                </div>
+
+            </form>
+
+            <div class="px-4">
+
+                <table class="table table-responsive table-striped mb-0" #tbl>
+                    <thead #header table-header [columns]="tblColumns" (onSortChange)="onSortChange($event)"
+                        [sortInfo]="pagingSortingModel.sortInfo" [disabled]="loading || (totalItemsCount<1)"></thead>
+                    <tbody>
+                        <tr *ngFor="let item of items">
+
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.description }}</td>
+                            <td>
+                                <a class="mr-2" mdbTooltip="{{ 'edit' | translate }}" routerLink="edit/{{item.id}}"
+                                    [ngClass]="{'disabled': loading}">
+                                    <i class="blue-text fa-edit fas"></i>
+                                </a>
+                                <a routerLink="delete/{{item.id}}" mdbTooltip="{{ 'delete' | translate }}"
+                                    [ngClass]="{'disabled': loading}">
+                                    <i class="red-text  fa-trash fas"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr *ngIf="(!items || items.length<1) && !loading">
+                            <td colspan="20" class="text-center">{{'noRecordsFound'|translate}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="20" class="text-center">
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card-footer pb-0 pt-3">
+                    <app-paginator #pager [pageSize]="pagingSortingModel.pageSize" [totalItemsCount]="totalItemsCount"
+                        [activePage]="pagingSortingModel.page" (onPageChange)="onChangePage($event)"
+                        [disabled]="loading || totalItemsCount < 1">
+                    </app-paginator>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<router-outlet></router-outlet>

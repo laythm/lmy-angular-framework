@@ -1,0 +1,50 @@
+<div class="container-fluid full-page-container">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-lg-4 col-sm-8 animated fadeIn">
+            <!-- Material form login -->
+            <div class="card z-depth-2">
+                <div class="card-body">
+                    <div class="white text-center py-4">
+                        <h5>
+                            <strong>{{'login'|translate}}</strong>
+                        </h5>
+                    </div>
+
+                    <app-alerts [basemodel]="basemodel"></app-alerts>
+
+                    <!-- Form -->
+                    <form [formGroup]="loginForm" (submit)="login();" style="color: #757575;">
+
+                        <!-- Email -->
+                        <div class="md-form">
+                            <input mdbInput type="text" id="username" class="form-control" autocomplete="username email"
+                                [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" formControlName="username">
+                            <label for="username">{{'main.username'|translate}}</label>
+                            <div class="text-left text-danger" *ngIf="submitted && f.username.errors">
+                                {{'validation.required'|translate}}</div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="md-form">
+                            <input mdbInput type="password" id="password" class="form-control" autocomplete="new-password"
+                                [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password">
+                            <label for="password">{{'main.password'|translate}}</label>
+                            <div class="text-left text-danger" *ngIf="submitted && f.password.errors">
+                                {{'validation.required'|translate}}</div>
+                        </div>
+
+                        <!-- Sign in button -->
+                        <button mdbWavesEffect mdbBtn class="btn btn-primary float-right" color="primary" type="submit" [disabled]="loading">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            {{'login'|translate}}</button>
+
+                    </form>
+                    <!-- Form -->
+                </div>
+            </div>
+            <!-- Material form login -->
+        </div>
+    </div>
+</div>

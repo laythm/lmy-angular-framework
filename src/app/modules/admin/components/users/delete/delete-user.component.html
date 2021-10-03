@@ -1,0 +1,28 @@
+<div #modal class="modal show overflow-auto" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="display: block; padding-right: 17px;">
+    <div class="modal-dialog" style="max-width: 280px;top: 140px;">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" (click)="close()" [disabled]="loading">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body ml-4">
+                <app-alerts [basemodel]="basemodel"></app-alerts>
+                <h4>{{'areYouSure'|translate}}</h4>
+
+            </div>
+            <div class="modal-footer">
+                <button mdbWavesEffect mdbBtn type="button" class="btn btn-secondary" (click)="close()"
+                    [disabled]="loading">
+                    {{'no'|translate}}
+                </button>
+                <button mdbWavesEffect mdbBtn type="button" class="btn btn-primary" (click)="confirm()"
+                    [disabled]="loading">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    {{'yes'|translate}} </button>
+            </div>
+        </div>
+    </div>
+</div>

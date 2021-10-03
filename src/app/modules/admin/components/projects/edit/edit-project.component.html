@@ -1,0 +1,54 @@
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal show overflow-auto" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="display: block; padding-right: 17px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{'edit'|translate}}</h5>
+                <button type="button" class="close" [disabled]="loading" (click)="close()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <app-alerts [basemodel]="basemodel"></app-alerts>
+
+
+                <form [formGroup]="frm" (keydown.enter)="save()">
+                    <div class="md-form">
+                        <input type="text" formControlName="title" class="form-control"
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                            [ngClass]="{ 'is-invalid': submitted && f.title.errors }" mdbInput>
+                        <label for="title">{{'admin.title'|translate}}</label>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.title.hasError('required')">
+                            {{'validation.required'|translate}}</div>
+                    </div>
+
+                    <div class="md-form">
+                        <textarea type="text" id="description" class="md-textarea form-control"
+                            [attr.disabled]="loading? true : null"
+                            [ngClass]="{ 'is-invalid': submitted && f.description.errors }" formControlName="description"
+                            mdbInput></textarea>
+                        <label for="description">{{'admin.description'|translate}} </label>
+                        <div class="text-left text-danger" *ngIf="submitted && f.description.hasError('required')">
+                            {{'validation.required'|translate}}</div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button mdbWavesEffect mdbBtn type="button" class="btn btn-secondary" (click)="close()"
+                    [disabled]="loading">
+                    {{'close'|translate}}
+                </button>
+                <button mdbWavesEffect mdbBtn type="button" class="btn btn-primary" (click)="save()"
+                    [disabled]="loading">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    {{'save'|translate}} </button>
+            </div>
+        </div>
+    </div>
+</div>

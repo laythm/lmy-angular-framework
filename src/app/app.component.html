@@ -1,0 +1,79 @@
+<div *ngIf="routeLoading" class="progress-line"></div>
+
+<!-- 
+<mdb-progress-bar *ngIf="routeLoading" class="progress primary-color-dark" mode="indeterminate"></mdb-progress-bar> -->
+
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" [class.disabled]="processing" routerLink="/" >{{'brand'|translate}}</a>
+
+        <button class="navbar-toggler" type="button" (click)="showNavbar=!showNavbar;" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div [class]="showNavbar ? 'show' : ''" class="collapse navbar-collapse">
+
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+
+                <!-- <li class="nav-item">
+                    <a mdbWavesEffect [class.disabled]="processing" *ngIf="!loggedIn" class="nav-link" routerLink="/login"
+                        routerLinkActive="active"></a>
+                </li> -->
+
+                <li dropdown class="nav-item dropdown" *ngIf="canAccessAdmin">
+                    <div mdbWavesEffect dropdownToggle mdbWavesEffect type="button"
+                        class="nav-link dropdown-toggle waves-light text-center">
+                        {{ 'admin.admin' | translate }}
+                        <span class="caret"></span>
+                    </div>
+                    <div class="dropdown-menu dropdown dropdown-primary" role="menu">
+                        <a mdbWavesEffect class="dropdown-item waves-light" [class.disabled]="processing"
+                            routerLink="/admin/projects" routerLinkActive="active">{{ 'admin.projects' | translate
+                            }}</a>
+
+                        <a mdbWavesEffect class="dropdown-item waves-light" [class.disabled]="processing"
+                            routerLink="/admin/users" routerLinkActive="active">{{ 'admin.users' | translate }}</a>
+                    </div>
+                </li>
+
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link text-center" [class.disabled]="processing" (click)="changeLanguage();"
+                        mdbTooltip="{{ 'nextLang' | translate }}">
+                        <i class="fas fa-language"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-center" [class.disabled]="processing" *ngIf="loggedIn" (click)="logout();"
+                        mdbTooltip="{{ 'logout' | translate }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+
+                    <a class="nav-link text-center" [class.disabled]="processing" *ngIf="!loggedIn" routerLink="/login"
+                        mdbTooltip="{{ 'login' | translate }}" routerLinkActive="active">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+    </nav>
+
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<!-- <footer class="footer-absolute footer-copyright text-center text-white py-3 primary-color-dark darken-2">
+    &copy; 2021 Copyright:
+
+</footer> -->

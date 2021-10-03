@@ -1,0 +1,22 @@
+<div>
+
+  <div #alert_success *ngIf="basemodel && basemodel.successes.length>0"
+    class="alert alert-dismissible alert alert-success">
+    <button type="button" class="close" (click)="closeAlert('success')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <ul class="p-0 mb-0" style="list-style: none">
+      <li class=" " *ngFor="let success of basemodel.successes">{{success | translate}}</li>
+    </ul>
+  </div>
+  <div #alert_error *ngIf="basemodel && basemodel.errors.length>0"
+    class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" (click)="closeAlert('error')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <ul class="p-0 mb-0" style="list-style: none">
+      <li *ngFor="let error of basemodel.errors">{{error | translate}}</li>
+    </ul>
+  </div>
+
+</div>

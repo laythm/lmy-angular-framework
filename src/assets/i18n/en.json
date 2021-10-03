@@ -1,0 +1,72 @@
+{
+    "nextLang": "عربي",
+    "brand": "Brand",
+    "dir": "ltr",
+    "login": "Login",
+    "logout": "Logout",
+    "lorem": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi blanditiis, assumenda dolorem possimus id qui ut eaque. Similique porro labore commodi impedit deserunt? Officiis nihil rem aut molestias illum eos! Similique accusantium reprehenderit necessitatibus quo totam provident laudantium recusandae sapiente, nemo ex illum nobis, officia, vero dolores! Distinctio similique pariatur, at sint nemo quidem commodi vel rerum aliquid quibusdam? Perferendis.",
+    "title": "Lorem ipsum",
+    "actions": "Actions",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "close": "Close",
+    "areYouSure": "Are you sure?",
+    "yes": "Yes",
+    "no": "No",
+    "success": "Operation succeeded",
+    "error": "Error occurred please try again",
+    "search": "Search",
+    "noRecordsFound": "No records found.",
+    "clear": "clear",
+    "serverError": "Error occurred please try again",
+    "core": {
+        "of": "of",
+        "areYouSure": "Are you sure?"
+    },
+    "validation": {
+        "required": "Field is required",
+        "email":"email format is invalid",
+        "password":"Must have at least one number, one lowercase and one uppercase letter",
+        "minLength":"must be at least #minLength# characters long"
+    },
+    "main": {
+        "login": "Login",
+        "username": "Username",
+        "password": "Passsowrd",
+        "wrongUrl": "The requested URL was not found on this server.",
+        "_404": "404. That's an error."
+    },
+    "admin": {
+        "admin": "Admin",
+        "projects": "Projects",
+        "users": "Users",
+        "projectsList": "Projects",
+        "usersList": "Users List",
+        "title": "Title",
+        "description": "Description",
+        "userName":"User name",
+        "lastName":"Last name",
+        "firstName":"First name",
+        "email":"Email",
+        "password":"Password",
+        "roles":"Roles"
+    },
+    "roles":{
+        "Admin":"Admin",
+        "ProjectManager":"Project manager"
+    },
+    "api": {
+        "success": "Operation succeeded",
+        "error": "Error occurred please try again",
+        "invalidUsernNameOrPassword": "username or password is incorrect",
+        "project": {
+            "duplicate": "Project already exists"
+        },
+        "user": {
+            "duplicateUserName": "Username already exists",
+            "duplicateEmail": "Email already exists"
+        }
+    }
+}

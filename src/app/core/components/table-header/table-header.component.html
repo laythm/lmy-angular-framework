@@ -1,0 +1,12 @@
+<tr>
+  <th *ngFor="let column of columns.columns">
+    <a #tblSortables [ngClass]="{'disabled': !column.sortable || disabled}" (click)="sortBy($event,column.name)">
+      {{column.displayName | translate}}
+      <i *ngIf="column.sortable" 
+      class="ml-1 fas"
+      [ngClass]="{'fa-sort' : !sortInfo || sortInfo.column != column.name,
+        'fa-sort-up' : sortInfo && sortInfo.column == column.name && sortInfo.dir=='asc',
+        'fa-sort-down' : sortInfo && sortInfo.column == column.name  && sortInfo.dir=='desc'}"></i>
+    </a>
+  </th>
+</tr>

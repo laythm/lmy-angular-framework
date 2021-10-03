@@ -1,0 +1,111 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+html[dir="rtl"] {
+    body {
+        text-align: right;
+        font-family: 'Droid Arabic Kufi', serif;
+    }
+
+    .ml-auto,
+    .mx-auto {
+        margin-right: auto !important;
+        margin-left : 0px !important;
+    }
+
+
+    .mr-auto,
+    .mx-auto {
+        margin-left : auto !important;
+        margin-right: 0px !important;
+    }
+
+    .card-title {
+        text-align: right;
+    }
+
+    .mr-1 {
+        margin-left : 0.25rem !important;
+        margin-right: none !important;
+    }
+
+    .mr-2 {
+        margin-left : 0.5rem !important;
+        margin-right: none !important;
+    }
+
+    .mr-3 {
+        margin-left : 1rem !important;
+        margin-right: none !important;
+    }
+
+
+    .ml-1 {
+        margin-right: 0.25rem !important;
+        margin-left : none !important;
+    }
+
+    .ml-2 {
+        margin-right: 0.5rem !important;
+        margin-left : none !important;
+    }
+
+    .ml-3 {
+        margin-right: 1rem !important;
+        margin-left : none !important;
+    }
+
+    .ml-3 {
+        margin-right: 1rem !important;
+        margin-left : none !important;
+    }
+
+    .modal-header .close {
+        margin: -1rem -1rem auto -1rem;
+    }
+
+    .md-form label {
+        right: 0px;
+        left : auto;
+    }
+
+    .text-left {
+        text-align: right !important;
+    }
+
+    .text-right {
+        text-align: left !important;
+    }
+
+    .was-validated .form-control:invalid,
+    .form-control.is-invalid {
+        background-position: left !important;
+    }
+
+    .dropdown-item {
+        text-align: right;
+    }
+
+    .alert-dismissible .close {
+        left: 0;
+        right: unset;
+    }
+
+    .alert{
+        padding: 0.75rem 0.75rem;
+    }
+    .list-group{
+        padding-right: 0px;
+    }
+
+    .float-right{
+        float: left !important;
+    }
+
+    .float-left{
+        float: right !important;
+    }
+}
+
+.modal-dialog.modal-notify.modal-danger .modal-header {
+    background-color: #ff3547;
+}

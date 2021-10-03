@@ -1,0 +1,105 @@
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal show overflow-auto" id="exampleModal" tabindex="-1"
+ aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="display: block; padding-right: 17px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{'edit'|translate}}</h5>
+                <button type="button" class="close" [disabled]="loading" (click)="close()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <app-alerts [basemodel]="basemodel"></app-alerts>
+
+                <form [formGroup]="frm" (keydown.enter)="save()">
+                    <div class="md-form">
+                        <input type="text" formControlName="firstName" class="form-control"
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" mdbInput>
+                        <label for="firstName">{{'admin.firstName'|translate}}</label>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.firstName.hasError('required')">
+                            {{'validation.required'|translate}}</div>
+                    </div>
+                    <div class="md-form">
+                        <input type="text" formControlName="lastName" class="form-control"
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" mdbInput>
+                        <label for="lastName">{{'admin.lastName'|translate}}</label>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.lastName.hasError('required')">
+                            {{'validation.required'|translate}}</div>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" formControlName="userName" class="form-control"
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                            [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" mdbInput>
+                        <label for="userName">{{'admin.userName'|translate}}</label>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.userName.hasError('required')">
+                            {{'validation.required'|translate}}</div>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="text" formControlName="email" class="form-control"
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" mdbInput>
+                        <label for="email">{{'admin.email'|translate}}</label>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.email.hasError('required')">
+                            {{'validation.required'|translate}}</div>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.email.hasError('email')">
+                            {{'validation.email'|translate}}</div>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="password" formControlName="password" class="form-control"
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" mdbInput>
+                        <label for="password">{{'admin.password'|translate}}</label>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.password.hasError('required')">
+                            {{'validation.required'|translate}}</div>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.password.hasError('password')">
+                            {{'validation.password'|translate}}</div>
+
+                            <div class="text-left text-danger" *ngIf="submitted && f.password.hasError('minlength')">
+                                {{('validation.minLength'|translate).replace('#minLength#',f.password.errors.minlength.requiredLength)}}</div>
+                    </div>
+                    <div>
+                        <label for="roles">{{'admin.roles'|translate}}</label>
+
+                        <select formControlName="roles" class="form-control" multiple
+                            [attr.disabled]="loading? true : null" [attr.readonly]="loading? true : null"
+                            [ngClass]="{ 'is-invalid': submitted && f.roles.errors }">
+                            <option *ngFor="let role of userLookupsModel.roles" [ngValue]="role.id" [value]="role.id">{{
+                                'roles.' + role.name | translate}}</option>
+                        </select>
+
+                        <div class="text-left text-danger" *ngIf="submitted && f.roles.hasError('required')">
+                            {{'validation.required'|translate}}</div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button mdbWavesEffect mdbBtn type="button" class="btn btn-secondary" (click)="close()"
+                    [disabled]="loading">
+                    {{'close'|translate}}
+                </button>
+                <button mdbWavesEffect mdbBtn type="button" class="btn btn-primary" (click)="save()"
+                    [disabled]="loading">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    {{'save'|translate}} </button>
+            </div>
+        </div>
+    </div>
+</div>
