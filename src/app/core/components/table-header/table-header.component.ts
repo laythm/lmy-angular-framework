@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { SortInfo, TableHeaderColumns } from './table-header.models';
-
+import { TableHeaderColumns,SortInfo } from '../..';
+ 
 @Component({
   selector: '[table-header]',
   templateUrl: './table-header.component.html'

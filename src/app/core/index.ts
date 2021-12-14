@@ -5,7 +5,7 @@ export * from './models/messageService-common-keys'
 export * from './models/message.model'
 export * from './models/list.model'
 export * from './models/paging-sorting.model'
-export * from './components/table-header/table-header.models'
+export * from './models/table-header.models'
 
 //services
 export * from './services/authentication.service'

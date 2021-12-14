@@ -1,4 +1,4 @@
-import { SortInfo } from "../components/table-header/table-header.models";
+import { SortInfo } from "./table-header.models";
 
 export class PagingSortingModel<T> {
     constructor(page?: number, pageSize?: number) {
